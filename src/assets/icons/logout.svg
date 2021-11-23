@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logout-1</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="main" transform="translate(-1337.000000, -15.000000)">
+            <g id="Group-11" transform="translate(-1.000000, 0.000000)">
+                <g id="control-button" transform="translate(1182.000000, 15.000000)">
+                    <g id="logout-1" transform="translate(156.000000, 0.000000)">
+                        <g id="Frame_-_24px">
+                            <rect id="Rectangle" x="0" y="0" width="20" height="20"></rect>
+                        </g>
+                        <g id="Line_Icons" transform="translate(4.000000, 2.000000)" fill="#ADADAD" fill-rule="nonzero">
+                            <g id="Group">
+                                <path d="M11.375,17 L2.4375,17 C1.5413125,17 0.8125,16.23755 0.8125,15.3 L0.8125,12.75 L2.4375,12.75 L2.4375,15.3 L11.375,15.3 L11.375,1.7 L2.4375,1.7 L2.4375,4.25 L0.8125,4.25 L0.8125,1.7 C0.8125,0.7633 1.5413125,0 2.4375,0 L11.375,0 C12.2711875,0 13,0.7633 13,1.7 L13,15.3 C13,16.23755 12.2711875,17 11.375,17 Z" id="Path"></path>
+                                <polygon id="Path" points="6.2619375 4.4982 5.1130625 5.7018 6.979375 7.65 0 7.65 0 9.35 6.972875 9.35 5.11225 11.2999 6.26275 12.5001 10.086375 8.49235"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
