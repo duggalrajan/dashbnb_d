@@ -43,14 +43,14 @@ export default {
       commit('setCurrentPage', DEFAULT_PAGE);
     },
     async login({ commit }, { email, password }) {
-        const response = await apis.login({ email, password });
-        commit('setAuthToken', response.data.authToken);
+      const response = await apis.login({ email, password });
+      commit('setAuthToken', response.data.authToken);
     },
     async logout({ commit }) {
       commit('setAuthToken', null);
     },
-    async getListings({ commit }) {
-      const response = await apis.getListings();
+    async getListings({ commit }, param) {
+      const response = await apis.getListings(param);
       commit('setListings', response.data.items);
     },
     async gotoPage({ commit }, page) {

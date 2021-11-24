@@ -12,8 +12,8 @@ function login({ email, password }) {
     return instance.post(`/auth/login`, { email, password });
 }
 
-function getListings() {
-    return instance.get(`/listings`);
+function getListings(param) {
+    return instance.get(param ? `/listings?type=${param}` : '/listings');
 }
 
 export default {
