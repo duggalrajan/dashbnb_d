@@ -3,7 +3,7 @@
     <TopNav />
     <div class="main-content">
       <template v-if="isLoggedIn">
-        <component v-bind:is="currentPage"/>
+        <component v-bind:is="currentPage" />
       </template>
       <template v-else>
         <Login />
@@ -13,32 +13,36 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import NotFound from './components/NotFound.vue'
-import Login from './components/Login.vue'
-import Listings from './components/Listings.vue'
-import TopNav from './components/TopNav.vue'
-import './styles/main.scss';
+import { mapGetters, mapActions } from "vuex";
+import NotFound from "./components/NotFound.vue";
+import Login from "./components/Login.vue";
+import Listings from "./components/Listings.vue";
+import TopNav from "./components/TopNav.vue";
+import BookingDetails from "./components/BookingDetails.vue";
+import MyBookings from "./components/MyBookings.vue";
+import "./styles/main.scss";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Listings,
     Login,
     TopNav,
-    NotFound
+    NotFound,
+    BookingDetails,
+    MyBookings,
   },
   computed: {
-    ...mapGetters(['isLoggedIn']),
-    ...mapGetters(['currentPage']),
+    ...mapGetters(["isLoggedIn"]),
+    ...mapGetters(["currentPage"]),
   },
   mounted() {
     this.init();
   },
   methods: {
-    ...mapActions(['init']),
-  }
-}
+    ...mapActions(["init"]),
+  },
+};
 </script>
 
 <style lang="scss">

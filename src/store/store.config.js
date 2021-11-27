@@ -8,6 +8,8 @@ export default {
     authToken: null,
     currentPage: null,
     listings: [],
+    selectedProperty: {},
+    myBookingsData: []
   },
   getters: {
     isLoggedIn(state) {
@@ -30,8 +32,14 @@ export default {
     setListings(state, newListings) {
       state.listings = newListings;
     },
+    setSelectedProperty(state, info) {
+      state.selectedProperty = info
+    },
     setCurrentPage(state, page) {
       state.currentPage = page;
+    },
+    setMyBookingsData(state, data) {
+      state.myBookingsData = data;
     }
   },
   actions: {
@@ -53,8 +61,22 @@ export default {
       const response = await apis.getListings(param);
       commit('setListings', response.data.items);
     },
+    async getListingDetails({ commit }, id) {
+      const response = await apis.getListingDetails(id);
+      commit('setSelectedProperty', response.data)
+      commit('setCurrentPage', 'BookingDetails');
+    },
     async gotoPage({ commit }, page) {
       commit('setCurrentPage', page);
+    },
+    async getMyBookings({ commit }) {
+      const response = await apis.getMyBookings();
+      commit('setMyBookingsData', response.data)
+      commit('setCurrentPage', 'MyBookings')
+    },
+    async submitBooking({ commit }, data) {
+      const response = await apis.submitBooking(data)
+      console.log(commit, response)
     }
   },
   modules: {

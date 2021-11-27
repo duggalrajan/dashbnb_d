@@ -1,36 +1,51 @@
 <template>
-    <header class="top-nav">
-        <div class="center">
-            <div class="title" @click="gotoPage('listings')"><span class='logo-gold'>DASH</span><span class='logo-black'>BNB</span></div>
-        </div>
-        <div class="right">
-            <template v-if="isLoggedIn">
-                <nav>
-                  <ul>
-                    <li><a @click="gotoPage('NotFound')"><img src="@/assets/icons/calendar-check.svg" /> My Bookings</a></li>
-                    <li><a @click="onLogoutClick"><img src="@/assets/icons/logout.svg" /> Logout</a></li>
-                  </ul>
-                </nav>
-            </template>
-        </div>
-    </header>
+  <header class="top-nav">
+    <div class="center">
+      <div class="title" @click="gotoPage('listings')">
+        <span class="logo-gold">DASH</span><span class="logo-black">BNB</span>
+      </div>
+    </div>
+    <div class="right">
+      <template v-if="isLoggedIn">
+        <nav>
+          <ul>
+            <li>
+              <a @click="toMyBookings"
+                ><img src="@/assets/icons/calendar-check.svg" /> My Bookings</a
+              >
+            </li>
+            <li>
+              <a @click="onLogoutClick"
+                ><img src="@/assets/icons/logout.svg" /> Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </template>
+    </div>
+  </header>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(['isLoggedIn']),
+    ...mapGetters(["isLoggedIn"]),
   },
-    methods: {
-        ...mapActions(['logout']),
-        ...mapActions(['gotoPage']),
-        onLogoutClick() {
-           this.logout();
-        },
-    }
-}
+  methods: {
+    ...mapActions(["logout"]),
+    ...mapActions(["gotoPage"]),
+    ...mapActions(["getMyBookings"]),
+    onLogoutClick() {
+      this.logout();
+    },
+    toMyBookings() {
+      this.getMyBookings();
+      // this.gotoPage("NotFound");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -58,10 +73,10 @@ export default {
   }
 
   .right {
-      display: flex;
-      justify-content: flex-end;
-      width: 500px;
-      margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    width: 500px;
+    margin-left: auto;
   }
 
   .title {
