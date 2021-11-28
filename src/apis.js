@@ -27,7 +27,7 @@ function getMyBookings() {
 function submitBooking(data) {
     console.log(data)
     const payload = {
-        "listings_id": 18,
+        ...data,
         "start_at": new Date(),
         "end_at": new Date(),
         "price": 100,
@@ -36,9 +36,6 @@ function submitBooking(data) {
         "confirmed_at": new Date(),
         "denied_at": new Date(),
         "canceled_at": new Date(),
-        "guests": 2,
-        "name": "string",
-        "email": "user@example.com"
     }
     return instance.post(`reservations`, payload)
 }

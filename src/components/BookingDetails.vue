@@ -86,8 +86,18 @@
                 </template>
               </vc-date-picker>
             </div>
-            <div><input type="text" placeholder="Your name" /></div>
-            <div><input type="text" placeholder="Your email" /></div>
+            <select v-model="guests" name="guests" id="">
+              <option value="1">1</option>
+              <option value="1">2</option>
+              <option value="1">3</option>
+              <option value="1">4</option>
+            </select>
+            <div>
+              <input type="text" v-model="name" placeholder="Your name" />
+            </div>
+            <div>
+              <input type="text" v-model="email" placeholder="Your email" />
+            </div>
           </form>
           <!-- <vc-calendar :attributes="attributes" @dayclick="onDayClick" /> -->
         </div>
@@ -108,6 +118,9 @@ export default {
   data() {
     return {
       loading: false,
+      name: "",
+      email: "",
+      guests: 0,
     };
   },
   components: {
@@ -124,7 +137,13 @@ export default {
     bookNow(hotel) {
       const { id } = hotel;
       console.log(id);
-      this.submitBooking();
+      let payload = {
+        name: this.name,
+        email: this.email,
+        guests: this.guests,
+        listings_id: this.selectedProperty.id,
+      };
+      this.submitBooking(payload);
     },
     onDayClick() {},
     onChange(e) {
