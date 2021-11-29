@@ -30,7 +30,7 @@
         <Price :value="selectedProperty.price" />
         <div>
           <form
-            class="bg-white shadow-md rounded px-8 pt-6 pb-8"
+            class="bg-white shadow-md rounded px-8 pt-6 pb-8 submit-form"
             @submit.prevent
           >
             <div class="mb-4 calender-box">
@@ -86,12 +86,16 @@
                 </template>
               </vc-date-picker>
             </div>
-            <select v-model="guests" name="guests" id="">
-              <option value="1">1</option>
-              <option value="1">2</option>
-              <option value="1">3</option>
-              <option value="1">4</option>
-            </select>
+            <div>
+              <label for="guests">Guests</label>
+              <select v-model="guests" name="guests" id="">
+                <option value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+                <option value="1">4</option>
+              </select>
+            </div>
+
             <div>
               <input type="text" v-model="name" placeholder="Your name" />
             </div>
@@ -101,7 +105,9 @@
           </form>
           <!-- <vc-calendar :attributes="attributes" @dayclick="onDayClick" /> -->
         </div>
-        <Button @click.native="bookNow(selectedProperty)">Reserve</Button>
+        <div class="actions">
+          <Button @click.native="bookNow(selectedProperty)">Reserve</Button>
+        </div>
       </div>
     </div>
   </div>
@@ -166,6 +172,19 @@ export default {
 
 <style lang="scss" scoped>
 .bookings-card {
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  .submit-form {
+    select,
+    input {
+      width: 100%;
+      border-radius: 20px;
+      margin: 5px 0;
+    }
+  }
   .calender-box {
     display: flex;
     justify-content: flex-start;
