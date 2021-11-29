@@ -103,7 +103,6 @@
               <input type="text" v-model="email" placeholder="Your email" />
             </div>
           </form>
-          <!-- <vc-calendar :attributes="attributes" @dayclick="onDayClick" /> -->
         </div>
         <div class="actions">
           <Button @click.native="bookNow(selectedProperty)">Reserve</Button>
@@ -127,6 +126,7 @@ export default {
       name: "",
       email: "",
       guests: 0,
+      range: "",
     };
   },
   components: {
@@ -143,11 +143,14 @@ export default {
     bookNow(hotel) {
       const { id } = hotel;
       console.log(id);
+      const { start, end } = this.range;
       let payload = {
         name: this.name,
         email: this.email,
         guests: this.guests,
         listings_id: this.selectedProperty.id,
+        start_at: start,
+        end_at: end,
       };
       this.submitBooking(payload);
     },
