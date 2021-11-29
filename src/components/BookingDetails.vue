@@ -187,7 +187,9 @@ export default {
   }
   .calender-box {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
   }
   box-shadow: 0 0 5px #ccc;
   background: white;
